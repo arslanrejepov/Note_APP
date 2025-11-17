@@ -2,7 +2,7 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 from .database import engine
 
 # create a session factory
-SessionLocal = sessionmaker(autocommit=False,auutoflush=False, binf=engine)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # Base class for all models
 Base = declarative_base()

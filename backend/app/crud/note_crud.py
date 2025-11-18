@@ -8,10 +8,10 @@ def noteCreate(db : Session, note_data:NoteCreate):
         content=note_data.content
     )
 
-    db.add(note_data)
+    db.add(new_note)
     db.commit()
-    db.refresh(note_data)
-    return note_data
+    db.refresh(new_note)
+    return new_note
 
 def getNotes(db:Session):
     return db.query(Note).all()

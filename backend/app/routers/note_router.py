@@ -28,7 +28,7 @@ def read_note(ID : int, db : Session = Depends(get_db)):
     return note
 
 @router.put("/{ID}",response_model=NoteResponse)
-def update_note(ID : int, note_data = NoteUpdate, db: Session=Depends(get_db)):
+def update_note(ID : int, note_data : NoteUpdate, db: Session=Depends(get_db)):
     note= updateNote(db,ID,note_data)
     if not note:
         raise HTTPException(status_code=404,detail="Note not Found")
